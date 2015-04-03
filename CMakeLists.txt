@@ -131,8 +131,8 @@ if(ANDROID_PLATFORM)
 elseif(GNULINUX_PLATFORM)
     #TODO Development has been moved to android, GNULINUX_PLATFORM is not
     # needed any more. GNULINUX_PLATFORM support needs to be removed.
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mthumb-interwork -mthumb -march=armv7-a -mfpu=vfp3")
-    set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -mthumb-interwork -mthumb -march=armv7-a -mfpu=neon")
+    # set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mthumb-interwork -mthumb -march=armv7-a -mfpu=vfp3")
+    # set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -mthumb-interwork -mthumb -march=armv7-a -mfpu=neon")
 elseif(IOS_PLATFORM)
     #set minimal target ios version.If not provided this option, Xcode
     #5.0.2 would generate code for iOS 7.0, which would lead runtime
