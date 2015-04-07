@@ -129,10 +129,11 @@ if(ANDROID_PLATFORM)
     message("-- CMAKE_C_FLAGS:
     ${CMAKE_C_FLAGS}")
 elseif(GNULINUX_PLATFORM)
-    #TODO Development has been moved to android, GNULINUX_PLATFORM is not
-    # needed any more. GNULINUX_PLATFORM support needs to be removed.
+    if(${NE10_TARGET_ARCH} STREQUAL "armv7")
+      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mthumb-interwork -mthumb -march=armv7-a -mfpu=vfp3 -funsafe-math-optimizations")
     # set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mthumb-interwork -mthumb -march=armv7-a -mfpu=vfp3")
-    # set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -mthumb-interwork -mthumb -march=armv7-a -mfpu=neon")
+      set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -mthumb-interwork -mthumb -march=armv7-a -mfpu=neon")
+    endif()
 elseif(IOS_PLATFORM)
     #set minimal target ios version.If not provided this option, Xcode
     #5.0.2 would generate code for iOS 7.0, which would lead runtime
@@ -234,3 +235,4 @@ if(GNULINUX_PLATFORM)
     	${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake
 	)
 endif()
+
