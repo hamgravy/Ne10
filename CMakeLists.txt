@@ -234,4 +234,3 @@ if(GNULINUX_PLATFORM)
     	${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake
 	)
 endif()
-

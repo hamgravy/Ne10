@@ -161,6 +161,7 @@ extern "C" {
 
 
     /* NEON version*/
+#if defined(__arm__)
     extern ne10_fft_cfg_float32_t ne10_fft_alloc_c2c_float32_neon (ne10_int32_t nfft);
     extern ne10_fft_cfg_int32_t ne10_fft_alloc_c2c_int32_neon (ne10_int32_t nfft);
 
@@ -208,7 +209,7 @@ extern "C" {
                                             ne10_fft_cpx_int16_t *fin,
                                             ne10_fft_r2c_cfg_int16_t cfg,
                                             ne10_int32_t scaled_flag);
-
+#endif
     /* fir functions*/
 
     /* function pointers*/

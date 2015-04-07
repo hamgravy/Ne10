@@ -33,6 +33,7 @@ ne10_result_t ne10_init_dsp (ne10_int32_t is_NEON_available)
 {
     if (NE10_OK == is_NEON_available)
     {
+#if defined(__arm__)
         ne10_fft_alloc_c2c_float32 = ne10_fft_alloc_c2c_float32_neon;
         ne10_fft_alloc_c2c_int32 = ne10_fft_alloc_c2c_int32_neon;
         ne10_fft_c2c_1d_float32 = ne10_fft_c2c_1d_float32_neon;
@@ -46,6 +47,7 @@ ne10_result_t ne10_init_dsp (ne10_int32_t is_NEON_available)
         ne10_fft_c2c_1d_int16 = ne10_fft_c2c_1d_int16_neon;
         ne10_fft_c2r_1d_int16 = ne10_fft_c2r_1d_int16_neon;
         ne10_fft_r2c_1d_int16 = ne10_fft_r2c_1d_int16_neon;
+#endif	
 
 #ifdef ENABLE_NE10_FIR_FLOAT_NEON
         ne10_fir_float = ne10_fir_float_neon;
